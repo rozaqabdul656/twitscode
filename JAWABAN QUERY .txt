@@ -1,0 +1,29 @@
+CREATE TABLE `tb_transaksi` (
+  `id` int(11) NOT NULL,
+  `tanggal_order` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status_pelunasan` varchar(225) NOT NULL,
+  `tanggal_pembayaran` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `tb_transaksi` ADD PRIMARY KEY (`id`);
+ALTER TABLE `tb_transaksi` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+
+CREATE TABLE `tb_detail_transaksi` (
+  `id` int(11) NOT NULL,
+  `id_data_transaksi` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL
+);
+
+
+ALTER TABLE `tb_detail_transaksi` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+
+INSERT INTO `tb_transaksi` (`id`, `tanggal_order`, `status_pelunasan`, `tanggal_pembayaran`) VALUES (NULL, current_timestamp(), 'lunas', current_timestamp());
+INSERT INTO `tb_detail_transaksi` (`id`, `id_data_transaksi`, `harga`, `jumlah`, `subtotal`) VALUES (NULL, '1', '2000', '2', '20000');
+
+JAWABAN =
+
+SELECT A.id,a.status_pelunasan as status,a.tanggal_pembayaran,B.subtotal as total,B.jumlah as jumlah_barang FROM tb_transaksi A INNER JOIN tb_detail_transaksi B ON A.id=B.id_data_transaksi;
