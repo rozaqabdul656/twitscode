@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "81af194e-7b73-4565-8440-a64b9dd3bd1b",
+		"name": "TwitsCode Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "binary to decimal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"test\",\r\n    \"email\":\"test\",\r\n    \"password\":\"data\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decimal TO Binary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/decimaltobinary?decimal=1001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"decimaltobinary"
+					],
+					"query": [
+						{
+							"key": "decimal",
+							"value": "1001"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
